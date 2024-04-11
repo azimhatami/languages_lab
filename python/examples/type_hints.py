@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Annotated
 
 
 def get_full_name(first_name: str, last_name: str):
@@ -95,5 +95,20 @@ def get_person_name(one_person: Person):
     return one_person.name
 
 p1 = Person('Azim')
-print(get_person_name(p1))
+# print(get_person_name(p1))
+
+
+# Annotated
+def say_hello(name: Annotated[str, 'this is just metadata']) -> str:
+    return f'Hello {name}'
+
+print(say_hello('Azim'))
+
+
+
+
+
+
+
+
 
