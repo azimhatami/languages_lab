@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <style>
+        .backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            z-index: 10;
+            backdrop-filter: blur(3px);
+        }
+        .hidden {
+            display: none
+        }
+        .modal {
+            position: absolute;
+            padding: 1rem;
+            width: 70%;
+            max-width: 50rem;
+            border: 1px solid #efefef;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 2rem;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+        }
+        .modal_header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+   <button class="show-modal">show modal</button> 
+   <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Facere, sapiente delectus? Architecto eveniet aliquid aut 
+    quaerat possimus autem nesciunt alias ipsa saepe ex, 
+    numquam nam quos impedit facere nemo natus.
+   </p>
+   <div class="backdrop hidden"></div>
+   <div class="modal hidden">
+    <div class="modal_header">
+        <h2>Modal Title</h2>
+        <button class="close-modal">&times;</button>
+    </div>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Velit, quibusdam quod molestiae fugiat nulla obcaecati dolores 
+        laudantium laboriosam at tempore. Saepe alias earum beatae 
+        excepturi dignissimos iste asperiores voluptate in.
+    </p>
+   </div>
+   <script src="./main.js"></script>
+</body>
+</html>
