@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      .green {
+        color: green;
+        font-weight: 700;
+      }
+      .red {
+        color: red;
+        font-weight: 700;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+   <div class='container'>
+    <div>
+      <button class="btn decrement">-</button>
+      <button class="btn reset">reset</button>
+      <button class="btn increment">+</button>
+    </div>
+    <div>
+      <span>Counter: </span>
+      <span class="counter_value">0</span>
+    </div>
+   </div>
+  <script src="./main.js"></script>
+  </body>
+</html>
