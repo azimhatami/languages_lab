@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+:root {
+  --primaryColor: #6d28d9;
+  --secondaryColor: #ede9fe;
+  /* 
+  --primaryColor: #4338CA;
+  --secondaryColor: #E0E7FF;
+  */
+  --mainWhite: #fff;
+  --mainBlack: #222;
+  --mainGray: #7c7c7c;
+  --mainTransition: all 0.3s linear;
+  --bodyColor: #f6f6f6;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--mainBlack);
+  background: var(--mainWhite);
+  font-family: 'Lato', sans-serif;
+  background-color: var(--bodyColor);
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--secondaryColor);
+  /* 
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(20px);
+  */
+}
+
+.header-container {
+  height: 5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#search {
+  border: none;
+  outline: none;
+  width: 20rem;
+  height: 2.2rem;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+::placeholder {
+  color: var(--secondaryColor);
+  font-weight: bold;
+}
+
+#search:focus {
+  font-weight: bold;
+  border: 2px solid var(--primaryColor);
+}
+
+.filter-box {
+  display: flex;
+  gap: 20px;
+}
+
+.filter-box .btn {
+  text-decoration: none;
+  color: var(--primaryColor);
+  border: 1px solid var(--primaryColor);
+  border-radius: 3px;
+  padding: 5px;
+  font-weight: bold;
+  transition: background-color 0.8s ease-in;
+}
+
+.filter-box .btn:hover {
+  background-color: var(--primaryColor);
+  color: var(--secondaryColor);
+}
+
+.products {
+  padding: 4rem 0;
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-column-gap: 3rem;
+  grid-row-gap: 5rem;
+  place-items: center;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  gap: 5rem;
+  width: 18rem;
+  height: 25rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  opacity: 0.8;
+}
+
+.product:hover {
+  transform: translate(5px, 5px);
+  transition-property: opacity, transform;
+  transition: 0.3s 0.3s ease-out;
+  opacity: 1;
+}
+
+.image-container img {
+  width: 100%;
+  height: 16rem;
+  border-radius: 1rem;
+}
+
+.product-desc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.product-desc .product-title {
+  font-weight: bold;
+  color: var(--mainBlack);
+  font-size: 1.3rem;
+}
+
+.product-desc .product-price {
+  font-weight: bold;
+  color: var(--primaryColor);
+}

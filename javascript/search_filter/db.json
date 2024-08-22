@@ -1,0 +1,88 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "watch product",
+      "class": "watch",
+      "price": 10.99,
+      "image": "./images/1.png"
+    },
+    {
+      "id": 2,
+      "title": "watch product",
+      "class": "watch",
+      "price": 14.99,
+      "image": "./images/2.png"
+    },
+    {
+      "id": 3,
+      "title": "watch product",
+      "class": "watch",
+      "price": 7.98,
+      "image": "./images/3.png"
+    },
+    {
+      "id": 4,
+      "title": "shirt product",
+      "class": "shirt",
+      "price": 17.43,
+      "image": "./images/4.png"
+    },
+    {
+      "id": 5,
+      "title": "shirt product",
+      "class": "shirt",
+      "price": 19.11,
+      "image": "./images/5.png"
+    },
+    {
+      "id": 6,
+      "title": "shirt product",
+      "class": "shirt",
+      "price": 12.83,
+      "image": "./images/6.png"
+    },
+    {
+      "id": 7,
+      "title": "gown product",
+      "class": "gown",
+      "price": 54.29,
+      "image": "./images/7.png"
+    },
+    {
+      "id": 8,
+      "title": "gown product",
+      "class": "gown",
+      "price": 72.01,
+      "image": "./images/8.png"
+    },
+    {
+      "id": 9,
+      "title": "gown product",
+      "class": "gown",
+      "price": 43.88,
+      "image": "./images/9.png"
+    },
+    {
+      "id": 10,
+      "title": "jewelry product",
+      "class": "jewelry",
+      "price": 98.92,
+      "image": "./images/10.png"
+    },
+    {
+      "id": 11,
+      "title": "jewelry product",
+      "class": "jewelry",
+      "price": 123.33,
+      "image": "./images/11.png"
+    },
+    {
+      "id": 12,
+      "title": "jewelry product",
+      "class": "jewelry",
+      "price": 192.38,
+      "image": "./images/12.png"
+    }
+  ]
+}
