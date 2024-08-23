@@ -44,7 +44,7 @@ body {
   border-radius: 50%;
   background-color: #c8b4de;
   position: absolute;
-  z-index: 4;
+  z-index: 1;
   top: 9;
   right: 43;
   cursor: pointer;
@@ -113,4 +113,94 @@ h2 {
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+}
+
+/*-------------------------- Modal -------------------------*/
+
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  display: none;
+}
+
+/* .modal-container { */
+.cart-content {
+  padding: 1rem 0;
+  width: 30rem;
+  background-color: #ffe6e6;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin: 0 auto;
+  z-index: 10;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 20px 120px rgba(0, 0, 0, 0,07);
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  display: none;
+}
+
+h3 {
+  text-align: center;
+  font-weight: bold;
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cart-item-img {
+  width: 6rem;
+  border-radius: 8px;
+}
+
+.cart-item-desc {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cart-item-conteoller {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.cart-total {
+  font-weight: bold;
+}
+
+.btns-cart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.btn-cart {
+  width: 5rem;
+  height: 1.8rem;
+  border: none;
+  font-weight: bold;
+  border-radius: 8px;
 }
