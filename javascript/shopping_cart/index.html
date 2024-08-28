@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang='en'>
   <head>
     <meta charset='UTF-8'>
@@ -80,9 +80,29 @@
           </div>
           <button class='btn'>Add to cart</button>
         </div>
+        <div class='product'>
+          <div class='img-container'>
+            <img src='images/7.png' alt='product-7'>
+          </div>
+          <div class='description'>
+            <p class='description-title'>The bed.</p>
+            <p class='description-price'>57.92 $</p>
+          </div>
+          <button class='btn'>Add to cart</button>
+        </div>
+        <div class='product'>
+          <div class='img-container'>
+            <img src='images/8.png' alt='product-8'>
+          </div>
+          <div class='description'>
+            <p class='description-title'>The bed.</p>
+            <p class='description-price'>128.02 $</p>
+          </div>
+          <button class='btn'>Add to cart</button>
+        </div>
       </div>
+      <div class='backdrop'></div>
       <div class='modal-container'>
-        <div class='backdrop'></div>
         <div class='cart-content'>
           <h3>Your Cart</h3>
           <div class="cart-item">
@@ -98,7 +118,10 @@
             </div>
           </div>
           <div class="cart-footer">
-            <span class="cart-total">total price : 90 $</span>
+            <div class='cart-total-content'>
+              <span class="cart-total">total price:</span>
+              <span class="cart-total-price">90 $</span>
+            </div>
             <div class='btns-cart'>
               <button  class="btn-cart clear-cart"> clear cart</button>
               <button class="btn-cart cart-item-confirm">confirm</button>
@@ -107,7 +130,8 @@
         </div>
       </div>
     </section>
-    <script src='js/app.js' type='module'></script>
+    <script src='js/app.js'></script>
     <script src="https://kit.fontawesome.com/397ecee50f.js" crossorigin="anonymous"></script>
   </body>
 </html>
+
