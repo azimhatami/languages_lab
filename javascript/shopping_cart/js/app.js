@@ -5,6 +5,8 @@ const cartModal = document.querySelector('.modal-container');
 const backDrop = document.querySelector('.backdrop');
 const hideBtn = document.querySelector('.cart-item-confirm');
 const productsDOM = document.querySelector('.products');
+const cartTotal = document.querySelector('.cart-total-price');
+const cartItems = document.querySelector('.cart-number');
 
 let cart = [];
 
@@ -51,15 +53,28 @@ class UI {
         event.target.innerText = 'In Cart';
         event.target.disabled = true;
         const addedProduct = Storage.getProduct(id);
-        console.log(addedProduct);
         
         cart = [...cart, {...addedProduct, quantity: 1}]
 
         Storage.saveCart(cart);
+
+        this.setCartValue(cart);
       });
     });
     
     // console.log([...addToCartBtns]);
+  }
+
+  setCartValue(cart) {
+    let tempCartItems = 0;
+    const totalPrice = cart.reduce((accumulator, currentValue) => {
+      tempCartItems += currentValue.quantity;
+      return accumulator + currentValue.quantity * currentValue.price
+    }, 0);
+
+    cartTotal.innerText = `${totalPrice.toFixed(2)}`;
+    console.log(cartTotal)
+    cartItems.innerText = tempCartItems;
   }
 }
 
