@@ -8,6 +8,7 @@ const productsDOM = document.querySelector(".products");
 const cartTotal = document.querySelector(".cart-total-price");
 const cartItems = document.querySelector(".cart-number");
 const cartContent = document.querySelector('.cart-content');
+const clearCarts = document.querySelector('.clear-cart'); 
 
 let cart = [];
 
@@ -105,6 +106,21 @@ class UI {
     this.setCartValue(cart);
   }
 
+  cartLogic() {
+    clearCarts.addEventListener('click', () => {
+      cart.forEach(cItm => this.removeItem(cItm.id));
+    });
+  }
+
+  removeItem(id) {
+    // update cart
+    cart = cart.filter((cItem) => cItem.id !== id);
+    // update total price cart items
+    this.setCartValue(cart);
+    // update localstorage
+    Storage.saveCart(cart);
+  }
+
 }
 
 class Storage {
@@ -134,6 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ui.setupApp();
   ui.displayProducts(productsData);
   ui.getAddToCartBtns();
+  ui.cartLogic();
   Storage.saveProducts(productsData);
 });
 
