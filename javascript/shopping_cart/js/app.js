@@ -42,7 +42,7 @@ class UI {
     // console.log(buttons);
     buttons.forEach((btn) => {
       const id = btn.dataset.id;
-      const isInCart = cart.find((p) => p.id === id);
+      const isInCart = cart.find((p) => p.id === parseInt(id));
 
       if (isInCart) {
         btn.innerText = "In Cart";
