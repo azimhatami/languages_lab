@@ -8,9 +8,10 @@ const productsDOM = document.querySelector(".products");
 const cartTotal = document.querySelector(".cart-total-price");
 const cartItems = document.querySelector(".cart-number");
 const cartContent = document.querySelector('.cart-content');
-const clearCarts = document.querySelector('.clear-cart'); 
+const clearCartBtn = document.querySelector('.clear-cart'); 
 
 let cart = [];
+let buttonsDOM = [];
 
 class Products {
   getProduct() {
@@ -38,10 +39,10 @@ class UI {
   }
 
   getAddToCartBtns() {
-    const addToCartBtns = document.querySelectorAll(".btn");
-    const buttons = [...addToCartBtns];
+    const addToCartBtns = [...document.querySelectorAll(".btn")];
+    buttonsDOM = addToCartBtns;
     // console.log(buttons);
-    buttons.forEach((btn) => {
+    addToCartBtns.forEach((btn) => {
       const id = btn.dataset.id;
       const isInCart = cart.find((p) => p.id === parseInt(id));
 
@@ -88,11 +89,11 @@ class UI {
       <h5>$ ${cartItem.price}</h5>
     </div>
     <div class="cart-item-conteoller">
-      <i class="fas fa-chevron-up"></i>
+      <i class="fas fa-chevron-up" data-id=${cartItem.id}></i>
       <p>${cartItem.quantity}</p>
-      <i class="fas fa-chevron-down"></i>
+      <i class="fas fa-chevron-down" data-id=${cartItem.id}></i>
     </div>
-    <i class="fa-solid fa-trash"></i>
+    <i class="fa-solid fa-trash" data-id=${cartItem.id}></i>
     `;
     cartContent.appendChild(div);
   }
@@ -107,9 +108,15 @@ class UI {
   }
 
   cartLogic() {
-    clearCarts.addEventListener('click', () => {
-      cart.forEach(cItm => this.removeItem(cItm.id));
-    });
+    clearCartBtn.addEventListener('click', () => this.clearCarts());
+  }
+
+  clearCarts() {
+    cart.forEach(cItm => this.removeItem(cItm.id));
+    while (cartContent.children.length) {
+      cartContent.removeChild(cartContent.children[0]);
+    }
+    hideModal();
   }
 
   removeItem(id) {
@@ -119,6 +126,14 @@ class UI {
     this.setCartValue(cart);
     // update localstorage
     Storage.saveCart(cart);
+
+    this.getSingleBtn(id);
+  }
+
+  getSingleBtn(id){
+    const button = buttonsDOM.find(btn => parseInt(btn.dataset.id) === parseInt(id));
+    button.innerText = 'Add to cart';
+    button.disabled = false;
   }
 
 }
