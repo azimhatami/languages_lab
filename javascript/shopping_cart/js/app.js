@@ -109,6 +109,21 @@ class UI {
 
   cartLogic() {
     clearCartBtn.addEventListener('click', () => this.clearCarts());
+
+    // cart functionality
+    cartContent.addEventListener('click', (event) => {
+      console.log(event.target.dataset.id);
+      const addQuantity = event.target;
+      // get item from cart
+      const addedItem = cart.find(cItem => parseInt(cItem.id) === parseInt(addQuantity.dataset.id));
+      addedItem.quantity++;
+      // Update cart value
+      this.setCartValue(cart);
+      // save cart
+      Storage.saveCart(cart);
+      // Update cart item UI
+      addQuantity.nextElementSibling.innerText = addedItem.quantity;
+    });
   }
 
   clearCarts() {
