@@ -112,17 +112,43 @@ class UI {
 
     // cart functionality
     cartContent.addEventListener('click', (event) => {
-      console.log(event.target.dataset.id);
-      const addQuantity = event.target;
-      // get item from cart
-      const addedItem = cart.find(cItem => parseInt(cItem.id) === parseInt(addQuantity.dataset.id));
-      addedItem.quantity++;
-      // Update cart value
-      this.setCartValue(cart);
-      // save cart
-      Storage.saveCart(cart);
-      // Update cart item UI
-      addQuantity.nextElementSibling.innerText = addedItem.quantity;
+
+      if (event.target.classList.contains('fa-chevron-up')) {
+        console.log(event.target.dataset.id);
+        const addQuantity = event.target;
+        // get item from cart
+        const addedItem = cart.find(cItem => parseInt(cItem.id) === parseInt(addQuantity.dataset.id));
+        addedItem.quantity++;
+        // Update cart value
+        this.setCartValue(cart);
+        // save cart Storage
+        Storage.saveCart(cart);
+        // Update cart item UI
+        addQuantity.nextElementSibling.innerText = addedItem.quantity;
+      }else if (event.target.classList.contains('fa-trash')) {
+        const rmItem = event.target;
+        const _removedItm = cart.find(c => parseInt(c.id) === parseInt(rmItem.dataset.id));
+        this.removeItem(_removedItm.id);
+        Storage.saveCart(cart);
+        cartContent.removeChild(rmItem.parentElement);
+      }else if(event.target.classList.contains('fa-chevron-down')){
+        const subQuantity = event.target;
+        const substractedItem = cart.find((c) => parseInt(c.id) === parseInt(subQuantity.dataset.id));
+
+        if (substractedItem.quantity === 1) {
+          this.removeItem(substractedItem.id);
+          cartContent.removeChild(subQuantity.parentElement.parentElement)
+          return;
+        }
+
+        substractedItem.quantity--;
+        // Update cart value
+        this.setCartValue(cart);
+        // save cart Storage
+        Storage.saveCart(cart);
+        // Update cart item UI
+        subQuantity.previousElementSibling.innerText = substractedItem.quantity;
+      }
     });
   }
 
