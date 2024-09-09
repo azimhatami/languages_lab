@@ -3,3 +3,6 @@ __pycache__
 
 # Vim
 .*.sw[op]
+
+# JavaScript
+node_modules/
