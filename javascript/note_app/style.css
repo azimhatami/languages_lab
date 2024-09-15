@@ -123,14 +123,15 @@ h3 {
   color: #242947;
   border-radius: 8px;
   border: none;
+  transition: all 0.5s ease-out;
 }
 
 .addBtn {
-  background-color: #456ff9;
+  background-color: #546E7A;
   color: #eee;
   border: none;
   width: 100%;
-  height: 2rem;
+  height: 2.5rem;
   margin: 0 auto;
   border-radius: 5px;
   font-size: 1.2rem;
@@ -141,7 +142,9 @@ h3 {
 }
 
 .addBtn:hover {
-  box-shadow: 0px 2px 15px 5px #456ff9;
+  background-color: #263136;
+  color: var(--fontColor);
+  transition: all 0.4s ease-out;
 }
 
 .container {
