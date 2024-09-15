@@ -20,7 +20,7 @@ body {
 
 #app {
   display: grid;
-  grid-template-columns: auto 44rem auto auto;
+  grid-template-columns: auto 58rem auto auto;
   /* grid-template-rows: 4rem 30rem auto; */
   grid-template-rows: 4rem 4rem auto auto;
   grid-template-areas: 'header header header header''sidebar navbar navbar navbar''sidebar main main main''sidebar main main main';
