@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="public/javascript.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='./style.css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Note App</title>
+  </head>
+  <body>
+    <div id='app'>
+      <header class='titlebar'><h1>Note App</h1></header>
+      <nav class='navbar'>
+        <input class='nav-input' type='text' placeholder='Please add note...'>
+      </nav>
+      <aside class='sidebar'>
+        <div class='sidebar_content'>
+          <h3>Notes</h3>
+          <div class='sidebar_itms'>
+            <div class='sidebar_itm'>
+              <h4>new note</h4>
+              <p>This is a new note!</p>
+              <p>Date, 2024, at 8:34 PM</p>
+            </div>
+            <div class='sidebar_itm'>
+              <h4>new note</h4>
+              <p>This is a new note!</p>
+              <p>Date, 2024, at 8:34 PM</p>
+            </div>
+          </div>
+          <button class='addBtn'>Add Note</button>
+        </div>
+      </aside>
+      <main class='container'>
+        <textarea 
+          class='text_container' 
+          placeholder='Please write a description'></textarea>
+      </main>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
+
