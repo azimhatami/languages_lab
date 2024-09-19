@@ -51,7 +51,7 @@ h1 {
   text-align: center;
 }
 
-.nav-input {
+.nav_input {
   width: 100%;
   height: 100%;
   background-color: transparent;
@@ -139,7 +139,7 @@ h4 {
   font-size: 0.8rem;
 }
 
-.sidebar_itm:hover {
+.sidebar_itm_selected {
   background-color: var(--fontColor);
   color: #242947;
   border-radius: 8px;

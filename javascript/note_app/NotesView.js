@@ -9,7 +9,7 @@ class NotesView {
     this.root.innerHTML = `
       <header class='titlebar'><h1>Note App</h1></header>
       <nav class='navbar'>
-        <input class='nav-input' type='text' placeholder='Please add note...'>
+        <input class='nav_input' type='text' placeholder='Please add note...'>
       </nav>
       <aside class='sidebar'>
         <div class='sidebar_content'>
@@ -27,7 +27,7 @@ class NotesView {
     `;
 
     const addNoteBtn = this.root.querySelector('.addBtn');
-    const inputTitle = this.root.querySelector('.nav-input');
+    const inputTitle = this.root.querySelector('.nav_input');
     const inputBody = this.root.querySelector('.text_container');
 
 
@@ -44,6 +44,9 @@ class NotesView {
       })
     }
     );
+
+    // hide notes preview in first loading
+    this.updateNotePreviewVisibility(false);
   }
 
   _createNoteItem(id, title, body, updated) {
@@ -51,7 +54,7 @@ class NotesView {
     return `
       <div class='sidebar_itm' data-note-id='${id}'>
         <div class='itm_header'>
-          <h4>${title}</h4>
+          <h4 class='title_itm'>${title}</h4>
           <span class='trash' data-note-id='${id}'>
             <i class="fa-solid fa-trash-can"></i>
           </span>
@@ -91,6 +94,22 @@ class NotesView {
         this.onNoteDelete(noteItem.dataset.noteId)
       })
     })
+  }
+
+  updateActiveNote(note) {
+    this.root.querySelector('.nav_input').value = note.title;
+    this.root.querySelector('.text_container').value = note.body;
+
+    this.root.querySelectorAll('.sidebar_itm').forEach(item => {
+      item.classList.remove('sidebar_itm_selected')
+    })
+
+    this.root.querySelector(`.sidebar_itm[data-note-id='${note.id}']`).classList.add('sidebar_itm_selected')
+  }
+
+  updateNotePreviewVisibility(visible) {
+    this.root.querySelector('.nav_input').style.visibility = visible ? 'visible' : 'hidden';
+    this.root.querySelector('.text_container').style.visibility = visible ? 'visible' : 'hidden';
   }
 }
 
