@@ -1,9 +1,10 @@
 class NotesView {
   constructor(root, handlers) {
     this.root = root;
-    const { onNoteAdd, onNoteEdit } = handlers;
+    const { onNoteAdd, onNoteEdit, onNoteSelector} = handlers;
     this.onNoteAdd = onNoteAdd;
     this.onNoteEdit = onNoteEdit;
+    this.onNoteSelector = onNoteSelector;
     this.root.innerHTML = `
       <header class='titlebar'><h1>Note App</h1></header>
       <nav class='navbar'>
@@ -26,7 +27,7 @@ class NotesView {
 
     const addNoteBtn = this.root.querySelector('.addBtn');
     const inputTitle = this.root.querySelector('.nav-input');
-    const description = this.root.querySelector('.text_container');
+    const inputBody = this.root.querySelector('.text_container');
 
 
     addNoteBtn.addEventListener('click', () => {
@@ -34,14 +35,49 @@ class NotesView {
       this.onNoteAdd();
     });
 
-    [inputTitle, description].forEach(inputField => {
+    [inputTitle, inputBody].forEach(inputField => {
       inputField.addEventListener('blur', () => {
-        const newDescription = description.value.trim();
+        const newBody = inputBody.value.trim();
         const newTitle = inputTitle.value.trim();
-        this.onNoteEdit(newTitle, newDescription);
+        this.onNoteEdit(newTitle, newBody);
       })
     }
     );
+  }
+
+  _createNoteItem(id, title, body, updated) {
+    const MAX_BODY_LENGTH = 50;
+    return `
+      <div class='sidebar_itm' data-note-id='${id}'>
+        <h4>${title}</h4>
+        <p>
+          ${body.substring(0, MAX_BODY_LENGTH)}
+          ${body.length > MAX_BODY_LENGTH ? '...' : ''}
+        </p>
+        <p>
+          ${new Date(updated).toLocaleString('en', {dateStyle: 'full',timeStyle: 'short',})}
+        </p>
+      </div>
+    `;
+  }
+
+  updateNotesList(notes) {
+    const notesContainer = this.root.querySelector('.sidebar_itms');
+
+    notesContainer.innerHTML = '';
+    
+    let notesList = '';
+    for (const note of notes) {
+      const {id, title, body, updated} = note;
+      const html = this._createNoteItem(id, title, body, updated)
+      notesList += html;
+    }
+    notesContainer.innerHTML = notesList;
+    notesContainer.querySelectorAll('.sidebar_itm').forEach((noteItm) => {
+      noteItm.addEventListener('click', () => {
+        this.onNoteSelector(noteItm.dataset.noteId)
+      })
+    });
   }
 }
 
