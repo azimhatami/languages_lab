@@ -131,6 +131,7 @@ h4 {
 
 .trash {
   font-size: large;
+  cursor: pointer;
 }
 
 .date_style {

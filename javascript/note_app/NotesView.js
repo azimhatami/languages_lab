@@ -86,7 +86,8 @@ class NotesView {
     });
 
     notesContainer.querySelectorAll('.trash').forEach(noteItem => {
-      noteItem.addEventListener('click', () => {
+      noteItem.addEventListener('click', (event) => {
+        event.stopPropagation()
         this.onNoteDelete(noteItem.dataset.noteId)
       })
     })
