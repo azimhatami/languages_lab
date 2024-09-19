@@ -118,6 +118,26 @@ h3 {
   margin-bottom: 1rem;
 }
 
+.itm_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  font-size: 1.3rem;
+}
+
+.trash {
+  font-size: large;
+}
+
+.date_style {
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
 .sidebar_itm:hover {
   background-color: var(--fontColor);
   color: #242947;

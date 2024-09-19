@@ -1,10 +1,11 @@
 class NotesView {
   constructor(root, handlers) {
     this.root = root;
-    const { onNoteAdd, onNoteEdit, onNoteSelector} = handlers;
+    const { onNoteAdd, onNoteEdit, onNoteSelector, onNoteDelete} = handlers;
     this.onNoteAdd = onNoteAdd;
     this.onNoteEdit = onNoteEdit;
     this.onNoteSelector = onNoteSelector;
+    this.onNoteDelete = onNoteDelete;
     this.root.innerHTML = `
       <header class='titlebar'><h1>Note App</h1></header>
       <nav class='navbar'>
@@ -49,12 +50,17 @@ class NotesView {
     const MAX_BODY_LENGTH = 50;
     return `
       <div class='sidebar_itm' data-note-id='${id}'>
-        <h4>${title}</h4>
-        <p>
+        <div class='itm_header'>
+          <h4>${title}</h4>
+          <span class='trash' data-note-id='${id}'>
+            <i class="fa-solid fa-trash-can"></i>
+          </span>
+        </div>
+        <p class='body_itm'>
           ${body.substring(0, MAX_BODY_LENGTH)}
           ${body.length > MAX_BODY_LENGTH ? '...' : ''}
         </p>
-        <p>
+        <p class='date_style'>
           ${new Date(updated).toLocaleString('en', {dateStyle: 'full',timeStyle: 'short',})}
         </p>
       </div>
@@ -78,6 +84,12 @@ class NotesView {
         this.onNoteSelector(noteItm.dataset.noteId)
       })
     });
+
+    notesContainer.querySelectorAll('.trash').forEach(noteItem => {
+      noteItem.addEventListener('click', () => {
+        this.onNoteDelete(noteItem.dataset.noteId)
+      })
+    })
   }
 }
 
