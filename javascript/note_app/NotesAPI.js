@@ -44,7 +44,7 @@ class NotesAPI {
   }
   static deleteNote(id) {
     const notes = NotesAPI.getAllNotes();
-    const filteredNotes = notes.filter(n => n.id !== id)
+    const filteredNotes = notes.filter(n => n.id != id)
     localStorage.setItem('notes-app', JSON.stringify(filteredNotes));
   }
 }
