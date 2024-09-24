@@ -9,12 +9,14 @@
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.4",
     "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
+    "style-loader": "^4.0.0",
     "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4"
   },
   "scripts": {
-    "babel": "babeljs src/app.js -o public/bundel.js --presets @babel/preset-env --watch",
-    "build": "webpack ./src/app.js -o ./public --mode production"
+    "babel": "babeljs src/js/app.js -o public/bundel.js --presets @babel/preset-env --watch",
+    "build": "webpack ./src/js/app.js -o ./public --mode production"
   },
   "author": "Azim Hatami",
   "license": "ISC",
