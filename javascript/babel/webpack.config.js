@@ -2,6 +2,7 @@ const path = require('path');
 
 
 module.exports = {
+  mode: 'development',
   entry: '/src/js/app.js',
   output: {
     path: path.resolve(__dirname, 'public'),
@@ -24,5 +25,13 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       }
     ]
+  },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public')
+    },
+    compress: true,
+    port: 9000,
+    open: true,
   },
 }

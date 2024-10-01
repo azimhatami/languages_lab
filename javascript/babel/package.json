@@ -15,8 +15,8 @@
     "webpack-cli": "^5.1.4"
   },
   "scripts": {
-    "babel": "babeljs src/js/app.js -o public/bundel.js --presets @babel/preset-env --watch",
-    "build": "webpack ./src/js/app.js -o ./public --mode production"
+    "build": "webpack --watch",
+    "dev": "webpack-dev-server"
   },
   "author": "Azim Hatami",
   "license": "ISC",

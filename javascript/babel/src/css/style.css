@@ -10,6 +10,7 @@ body {
   margin: 0 auto;
   justify-content: center;
   align-items: center;
+  background-color: #232323;
 }
 
 #app {
@@ -26,6 +27,7 @@ body {
 
 .number {
   font-size: 5rem;
+  color: #eee;
 }
 
 .btns {
