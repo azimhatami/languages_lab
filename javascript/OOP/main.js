@@ -1,3 +1,5 @@
+// OOP
+
 function CreateCourse(title, price, discount) {
   this.title = title;
   this.price = price;
