@@ -3,17 +3,31 @@ function ContactItem({
   onDelete,
 }) {
   return (
-    <li key={id} className="flex items-center justify-evenly">
+    <li
+      key={id}
+      className="*:basis-0 *:grow-1 flex items-center justify-between bg-[#f5f5f5] !p-3 rounded-lg"
+    >
       <p>
         {firstName} {lastName}
       </p>
       <p>
-        <span>&#128233;</span> {email}
+        <span className="inline-block !mr-3 bg-white text-[1.2rem] w-[35px] h-[35px] rounded-full text-center">
+          &#128233;
+        </span>{" "}
+        {email}
       </p>
       <p>
-        <span>&#128222;</span> {phone}
+        <span className="inline-block !mr-3 bg-white text-[1.2rem] w-[35px] h-[35px] rounded-full text-center">
+          &#128222;
+        </span>{" "}
+        {phone}
       </p>
-      <button onClick={() => onDelete(id)}>🗑️</button>
+      <button
+        className="!basis-auto !grow-0 w-[2rem] h-[2rem] rounded-full bg-white text-lg outline-none cursor-pointer hover:text-xl"
+        onClick={() => onDelete(id)}
+      >
+        🗑️
+      </button>
     </li>
   );
 }
