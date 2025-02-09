@@ -4,11 +4,12 @@ import { GoHeartFill } from "react-icons/go";
 import { useState } from 'react';
 
 
-function BookItem({book}) {
+function BookItem({book, handleLikedList}) {
   // console.log(book)
   const [like, setLike] = useState(false);
 
   const likeHandler = () => {
+    handleLikedList(book, like)
     setLike(like => !like)
   };
   return(

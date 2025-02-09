@@ -1,16 +1,34 @@
+import { useState } from 'react';
+
 import Header from './components/Header';
 import BooksList from './components/BooksList';
 import Favorites from './components/Favorites';
+import Layout from './components/Layout';
 
 
 function App() {
 
+  const [likedList, setLikedList] = useState([]);
+
+  const handleLikedList = (book, status) => {
+    // console.log({book, status})
+    if (status) {
+      const newLikedList = likedList.filter((item) => {
+        return(
+          item.id !== book.id
+        );
+      });
+      setLikedList(newLikedList)
+    } else {
+      setLikedList((likedList) => [...likedList, book])
+    } 
+  };
+
   return (
-    <div className='grid grid-cols-[1fr_25rem] grid-rows-[3rem_45rem] gap-8'>
-      <Header /> 
-      <BooksList />
-      <Favorites />
-    </div>
+      <Layout>
+        <BooksList handleLikedList={handleLikedList} />
+        <Favorites likedList={likedList} />
+      </Layout>
   )
 }
 
