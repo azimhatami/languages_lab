@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 function HomePage() {
   return(
     <>
-      <Link to='/courses'>Courses</Link>
+      <Navbar />
       <h2>Home Page</h2>
     </>
   );

@@ -4,3 +4,12 @@
   padding: 0px;
 }
 
+.active {
+  color: green;
+  font-weight: bold;
+}
+
+a {
+  margin-right: 1rem;
+}
+
