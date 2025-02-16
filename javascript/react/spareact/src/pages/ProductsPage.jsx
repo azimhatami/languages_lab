@@ -1,5 +1,5 @@
 import Navbar from '../components/Navbar';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 const products = [
   {id: 1, name: 'products 1'},
@@ -8,10 +8,24 @@ const products = [
 ];
 
 function ProductsPage() {
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sortBy = searchParams.get('sortby')
+  const order = searchParams.get('order')
+
+  console.log(searchParams.toString());
+  console.log(sortBy);
+  console.log(order);
+
+  const sortHandler = () => {
+    setSearchParams({sortby: 'sale', order: 'desc'});
+  };
+
   return(
     <>
       <Navbar />
       <h2>Products Page</h2>
+      <button onClick={sortHandler}>sort</button>
       <ul>
         {products.map((product) => {
           return(
