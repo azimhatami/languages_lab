@@ -1,5 +1,5 @@
 import Navbar from '../components/Navbar';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 
 const products = [
   {id: 1, name: 'products 1'},
@@ -8,17 +8,22 @@ const products = [
 ];
 
 function ProductsPage() {
+  const navigate = useNavigate();
 
   const [searchParams, setSearchParams] = useSearchParams();
   const sortBy = searchParams.get('sortby')
   const order = searchParams.get('order')
 
-  console.log(searchParams.toString());
-  console.log(sortBy);
-  console.log(order);
+//  console.log(searchParams.toString());
+//  console.log(sortBy);
+//  console.log(order);
 
   const sortHandler = () => {
     setSearchParams({sortby: 'sale', order: 'desc'});
+  };
+
+  const navigateHandler = () => {
+    navigate('/', { replace: true })
   };
 
   return(
@@ -35,6 +40,7 @@ function ProductsPage() {
           );
         })}
       </ul>
+      <button onClick={navigateHandler}>Go Home</button>
     </>
   );
 }

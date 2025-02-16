@@ -5,7 +5,8 @@ function Navbar() {
     <>
       <NavLink to='/'>Home</NavLink>
       <NavLink to='/courses'>Courses</NavLink>
-      <NavLink to='/products'>Productss</NavLink>
+      <NavLink to='/products'>Products</NavLink>
+      <NavLink to='/about-us'>About us</NavLink>
     </>
   );
 }
