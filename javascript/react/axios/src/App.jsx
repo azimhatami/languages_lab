@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import axios from 'axios';
+// import axios from 'axios';
+import api from './services/config';
 import Post from './components/Post';
 import Delete from './components/Delete';
 import Put from './components/Put';
@@ -10,8 +11,9 @@ function App() {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/todos')
-      .then((response) => setTodos(response.data))
+   //  axios.get('https://jsonplaceholder.typicode.com/todos')
+      // .then((response) => setTodos(response.data))
+    api.get('/todos').then((res) => console.log(res))
     
     // Simultaneous Request
 //    axios.all([
