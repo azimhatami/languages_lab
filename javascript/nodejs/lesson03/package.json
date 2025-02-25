@@ -1,0 +1,16 @@
+{
+  "name": "lesson03",
+  "version": "1.0.0",
+  "description": "learn http module",
+  "license": "ISC",
+  "author": "AzimHatmai",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon node index.js",
+    "start": "node index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
