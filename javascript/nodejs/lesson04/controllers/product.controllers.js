@@ -8,6 +8,7 @@ async function get(req, res) {
     res.write(JSON.stringify(products))
     res.end()
   } catch (error) {
+    console.log(error);
   }
 }
 
@@ -29,11 +30,38 @@ async function getById(req, res) {
       res.end()
     }
   } catch (error) {
+    console.log(error);
   }
 }
+
+async function create(req, res) {
+  try {
+
+    let body = '';
+
+    req.on('data', (chunk) => {
+      body += chunk.toString();
+      console.log(chunk.toString());
+    })
+
+    req.on('end', async () => {
+      const product = {id: Date.now(), ...JSON.parse(body)};
+      const result = await ProductModel.createProduct(product);
+      res.writeHead(201, {'Content-Type': 'application/json'});
+      // TODO JSON.stringify
+      res.write(JSON.stringify(result))
+      res.end()
+    })
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 const ProductsController = {
   get,
-  getById
+  getById,
+  create
 };
 
 module.exports = ProductsController
