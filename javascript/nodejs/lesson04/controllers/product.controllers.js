@@ -58,10 +58,46 @@ async function create(req, res) {
   }
 }
 
+async function update(req, res) {
+  try {
+
+    let body = '';
+    const id = req.url.split('/')[3]
+
+    req.on('data', (chunk) => {
+      body += chunk.toString();
+      console.log(chunk.toString());
+    })
+
+    req.on('end', async () => {
+      const parsedBody = {...JSON.parse(body)};
+      const product = await ProductModel.findById(id);
+      if (!product) {
+        res.writeHead(404, {'Content-Type': 'application/json'});
+        // TODO JSON.stringify
+        res.write(JSON.stringify({
+          message: 'Not Found any product'
+        }))
+        res.end()
+      } else {
+        const updatedProduct = await ProductModel.updateProduct(id, parsedBody);
+        res.writeHead(200, {'Content-Type': 'application/json'});
+        // TODO JSON.stringify
+        res.write(JSON.stringify(updatedProduct))
+        res.end()
+      }
+    })
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 const ProductsController = {
   get,
   getById,
-  create
+  create,
+  update
 };
 
 module.exports = ProductsController
