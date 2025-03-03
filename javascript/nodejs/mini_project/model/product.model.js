@@ -6,11 +6,7 @@ const productCollection = 'product';
 async function find() {
   const db = await new ConnectToMongoDB().get();
   return new Promise(async (resolve, reject) => {
-    const products = await db.collection(productCollection).find({}, {
-      $sort: {
-        _id: -1
-      }
-    }).toArray();
+    const products = await db.collection(productCollection).find().toArray();
     resolve(products)
   })
 }

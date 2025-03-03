@@ -45,7 +45,7 @@ async function create(req, res) {
     })
 
     req.on('end', async () => {
-      const product = {id: Date.now(), ...JSON.parse(body)};
+      const product = {...JSON.parse(body), createdAt: new Date()};
       const result = await ProductModel.createProduct(product);
       res.writeHead(201, {'Content-Type': 'application/json'});
       // TODO JSON.stringify

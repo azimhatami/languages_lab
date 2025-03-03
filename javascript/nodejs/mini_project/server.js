@@ -4,7 +4,7 @@ const ErrorHandler = require('./controllers/errorHandler.controller');
 const PORT = 3000
 const server = http.createServer((req, res) => {
   const apiRoute = 'api';
-  const productsRoute = `${apiRoute}/products`;
+  const productsRoute = `/${apiRoute}/products`;
   const singleProductRoute = /\/api\/products\/[0-9]+/
   const { url, method } = req;
 
