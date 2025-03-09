@@ -1,0 +1,50 @@
+.red {
+  color: red;
+}
+
+.violet {
+  color: violet;
+}
+
+.blue {
+  color: blue;
+}
+
+.green {
+  color: green;
+}
+
+.main {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.container {
+  width: 90%;
+  height: 3rem;
+  margin: 0 auto;
+  background-color: #6495ED;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  border-radius: 1rem;
+}
+
+.logo {
+  font-weight: bold;
+}
+
+.navlink {
+  text-decoration: none;
+  color: #fff;
+}
+
+.ulstyle {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 6rem;
+  font-weight: bold;
+}

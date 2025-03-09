@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel='stylesheet', href='style.css')
+		title Pug Template Engine
+	body
+		include partials/_nav.pug
+		div.main
+			header.red
+				h2 Pug Template Engine
+			section
+				h3.violet This is a text!!!
+				p.green Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+				p #{section}
+				ul
+					// Iteration
+					each user in users
+						li= user.id
+							span &nbsp;>>&nbsp;
+							span= user.name
+				ul
+					each value, index in ['zero', 'one', 'two']
+						li= index + ': ' + value
+
+				ul
+					each value, key in {1: 'one', 2: 'two', 3: 'three'}
+						li= key + ': ' + value
+
+				- var values = [];
+				ul
+					each val in values.length ? values : ['There are no values']
+						li= val
+				// While loop
+				- var i = 0;
+				ul
+					while i < 4
+						li= i++
+			footer
+				h4.blue Footer
+				a(href=link target='_blank') Google
