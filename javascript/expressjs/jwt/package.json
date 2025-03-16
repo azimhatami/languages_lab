@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2",
+    "md5": "^2.3.0"
+  },
+  "name": "jwt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
