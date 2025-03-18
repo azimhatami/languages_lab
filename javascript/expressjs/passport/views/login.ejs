@@ -1,0 +1,21 @@
+<div>
+    <h1>Login</h1>
+    <p>
+        <%= messages?.error ?? "" %>
+    </p>
+    <div>
+        <form action="/login" method="POST">
+            <div>
+                <label for="username">Username</label>
+                <input type="text" name="username" placeholder="pls enter username..." required />
+            </div>
+            <div>
+                <label for="password">Password</label>
+                <input type="password" name="password" placeholder="pls enter password" required />
+            </div>
+			<button type="submit">login</button>
+        </form>
+        <a href="/register">Register</a>
+        <a href="/">Home</a>
+    </div>
+</div>
