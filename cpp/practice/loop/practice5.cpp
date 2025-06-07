@@ -9,6 +9,8 @@ int main() {
 		if (num % 2 == 1) {
 			std::cout << "Odd number -> " << num << std::endl;
 		}
+
+		
 	}
 
 	return 0;
