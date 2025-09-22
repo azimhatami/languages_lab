@@ -1,0 +1,3 @@
+import { stringVlidator } from './foo';
+
+

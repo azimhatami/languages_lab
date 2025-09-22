@@ -1,0 +1,10 @@
+var click;
+click = 'click';
+console.log(click);
+var mouseEvent;
+mouseEvent = 'click';
+mouseEvent = 'dblclick';
+mouseEvent = 'mouseup';
+mouseEvent = 'mousedown';
+// mouseEvent = 'mouseover';
+var anotherEvent;
